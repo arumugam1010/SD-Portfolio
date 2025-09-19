@@ -39,7 +39,7 @@ const Portfolio = () => {
       title: 'Smart Canteen System',
       description: 'Digital canteen management with cashless payments, menu management, and real-time analytics',
       image: 'https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Payment Gateway'],
+      technologies: ['React', 'Node.js', 'supabase', 'Payment Gateway'],
       link: '#',
       github: '#',
       category: 'Food Tech',
@@ -76,7 +76,7 @@ const Portfolio = () => {
       title: 'QR Visitor Management',
       description: 'Contactless visitor registration and tracking system with QR code generation and digital check-ins',
       image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React Native', 'QR Code API', 'Firebase', 'Cloud Functions'],
+      technologies: ['React','Node.js', 'QR Code API', 'supabase', ],
       link: '#',
       github: '#',
       category: 'Security',
@@ -113,7 +113,7 @@ const Portfolio = () => {
       title: 'Billing Application',
       description: 'Comprehensive billing and invoicing system with automated calculations and payment tracking',
       image: 'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Vue.js', 'Express.js', 'PostgreSQL', 'Stripe'],
+      technologies: ['React', 'Node.js', 'Supabase'],
       link: '#',
       github: '#',
       category: 'Finance',
@@ -150,7 +150,7 @@ const Portfolio = () => {
       title: 'Task Management System',
       description: 'Collaborative task management platform with real-time updates, progress tracking, and team collaboration',
       image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React', 'Socket.io', 'Redis', 'JWT Auth'],
+      technologies: ['React', 'Node.js', 'Supabase', ],
       link: '#',
       github: '#',
       category: 'Productivity',
@@ -263,9 +263,10 @@ const Portfolio = () => {
             {projects.map((project, index) => {
               const IconComponent = project.icon;
               return (
-                <div 
-                  key={project.id} 
-                  className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2 border border-gray-100 book-container ${
+                <Link
+                  key={project.id}
+                  to={`/project/${project.id}`}
+                  className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2 border border-gray-100 book-container block ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                   }`}
                   style={{ animationDelay: `${index * 0.1}s` }}
@@ -276,7 +277,8 @@ const Portfolio = () => {
                       alt={project.title}
                       className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {/* Removed hover overlay with Details and Code buttons as per user request */}
+                    {/* <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="absolute bottom-4 left-4 right-4 flex space-x-2">
                         <button 
                           onClick={() => handleViewProject(project)}
@@ -293,7 +295,7 @@ const Portfolio = () => {
                           <span>Code</span>
                         </a>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="absolute top-4 left-4 flex items-center space-x-2">
                       <div className="p-2 bg-white/90 backdrop-blur-sm rounded-lg">
                         <IconComponent className="w-5 h-5 text-gray-700" />
@@ -329,13 +331,10 @@ const Portfolio = () => {
                         <span>View Details</span>
                         <ArrowRight className="w-4 h-4" />
                       </Link>
-                      <div className="flex space-x-2">
-                        <Code className="w-5 h-5 text-gray-400" />
-                        <Github className="w-5 h-5 text-gray-400" />
-                      </div>
+                     
                     </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
