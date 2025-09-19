@@ -253,7 +253,7 @@ const Portfolio = () => {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className={`text-center mb-16 transition-all duration-1000 book-container ${
-            isVisible ? 'opacity-100 translate-y-0 animate-book-open' : 'opacity-0 translate-y-10'
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
               <Zap className="w-4 h-4" />
@@ -277,7 +277,7 @@ const Portfolio = () => {
                 <div 
                   key={project.id} 
                   className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2 border border-gray-100 book-container ${
-                    isVisible ? 'opacity-100 translate-y-0 animate-book-open' : 'opacity-0 translate-y-10'
+                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                   }`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
@@ -352,7 +352,7 @@ const Portfolio = () => {
           </div>
 
           <div className={`text-center mt-16 transition-all duration-1000 delay-500 book-container ${
-            isVisible ? 'opacity-100 translate-y-0 animate-book-open' : 'opacity-0 translate-y-10'
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <button className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center space-x-2 mx-auto">
               <span>View All Projects</span>
@@ -365,7 +365,7 @@ const Portfolio = () => {
       {/* Project Details Modal */}
       {showModal && selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-          <div className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-book-open">
+          <div className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
             <div className="p-8">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center space-x-4">

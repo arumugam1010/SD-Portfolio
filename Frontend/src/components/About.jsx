@@ -26,7 +26,7 @@ const About = () => {
     <section id="about" ref={sectionRef} className="py-20 bg-gradient-to-br from-white via-blue-50 to-indigo-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className={`text-center mb-16 transition-all duration-1000 book-container ${
-          isVisible ? 'opacity-100 translate-y-0 animate-book-open' : 'opacity-0 translate-y-10'
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-100 to-blue-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
             <Rocket className="w-4 h-4" />
@@ -45,7 +45,7 @@ const About = () => {
 
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <div className={`transition-all duration-1000 delay-200 book-container ${
-            isVisible ? 'opacity-100 translate-x-0 animate-book-open' : 'opacity-0 -translate-x-10'
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
           }`}>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl transform -rotate-3 opacity-10 animate-pulse"></div>
@@ -58,7 +58,7 @@ const About = () => {
           </div>
 
           <div className={`space-y-8 transition-all duration-1000 delay-400 book-container ${
-            isVisible ? 'opacity-100 translate-x-0 animate-book-open' : 'opacity-0 translate-x-10'
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
           }`}>
             <div>
               <h3 className="text-3xl font-bold text-gray-900 mb-4">
@@ -86,7 +86,7 @@ const About = () => {
 
         {/* Project Statistics */}
         <div className={`mb-20 transition-all duration-1000 delay-600 book-container ${
-          isVisible ? 'opacity-100 translate-y-0 animate-book-open' : 'opacity-0 translate-y-10'
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">Our New Startup Progress</h3>
@@ -136,7 +136,7 @@ const About = () => {
             <div 
               key={index}
               className={`text-center p-8 bg-white rounded-2xl hover:shadow-xl transition-all duration-500 hover:scale-105 border border-gray-100 book-container ${
-                isVisible ? 'opacity-100 translate-y-0 animate-book-open' : 'opacity-0 translate-y-10'
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${800 + index * 100}ms` }}
             >

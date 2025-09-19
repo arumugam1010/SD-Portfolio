@@ -251,7 +251,7 @@ const Services = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className={`text-center mb-16 transition-all duration-1000 book-container ${
-          isVisible ? 'opacity-100 translate-y-0 animate-book-open' : 'opacity-0 translate-y-10'
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
             <Zap className="w-4 h-4" />
@@ -274,12 +274,12 @@ const Services = () => {
             <div
               key={index}
               className={`group relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer hover:scale-105 border border-white/20 book-container hover:border-blue-200 ${
-                isVisible ? 'opacity-100 translate-y-0 animate-book-open' : 'opacity-0 translate-y-10'
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${200 + index * 100}ms` }}
               onClick={() => handleLearnMore(service)}
             >
-              <div className={`inline-flex p-4 rounded-2xl mb-6 border ${colorClasses[service.color]} group-hover:scale-110 transition-transform duration-300 animate-page-flip`} style={{ animationDelay: `${index * 0.1}s` }}>
+              <div className={`inline-flex p-4 rounded-2xl mb-6 border ${colorClasses[service.color]} group-hover:scale-110 transition-transform duration-300`} style={{ animationDelay: `${index * 0.1}s` }}>
                 <service.icon size={32} />
               </div>
               
@@ -314,7 +314,7 @@ const Services = () => {
 
         {/* Featured Service Detail */}
         <div className={`bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-2xl border border-white/20 transition-all duration-1000 book-container ${
-          isVisible ? 'opacity-100 translate-y-0 animate-book-open' : 'opacity-0 translate-y-10'
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -349,7 +349,7 @@ const Services = () => {
       {/* Service Details Modal */}
       {showModal && selectedService && (
         <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-book-open">
+          <div className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
             {/* Modal Header */}
             <div className="sticky top-0 bg-white rounded-t-3xl p-6 border-b border-gray-200 flex items-center justify-between">
               <div className="flex items-center space-x-4">

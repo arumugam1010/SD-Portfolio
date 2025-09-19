@@ -42,7 +42,7 @@ function App() {
   const MainWebsite = () => (
     <div className="min-h-screen">
       <Header />
-      <div id="home" className={animateHome ? "animate-book-open" : ""}>
+      <div id="home">
         <Hero />
       </div>
       <About />

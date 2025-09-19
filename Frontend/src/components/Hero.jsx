@@ -82,7 +82,7 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-6 py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className={`space-y-8 transition-all duration-1000 book-container ${
-            isVisible ? 'opacity-100 translate-y-0 animate-book-open' : 'opacity-0 translate-y-10'
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <div className="space-y-6">
               <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium animate-fade-in shadow-sm">
@@ -137,28 +137,28 @@ const Hero = () => {
           </div>
 
           <div className={`relative transition-all duration-1000 delay-300 book-container ${
-            isVisible ? 'opacity-100 translate-y-0 animate-book-open' : 'opacity-0 translate-y-10'
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <div className="relative animate-book-float">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-500 to-indigo-500 rounded-3xl transform rotate-6 opacity-20 animate-pulse"></div>
               <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 border border-white/20 animate-book-shadow">
                 <div className="grid grid-cols-2 gap-6">
-                  <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl text-center hover:scale-105 transition-all duration-300 hover:shadow-lg group border border-blue-200/50 animate-page-flip" style={{ animationDelay: '0.2s' }}>
+                  <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl text-center hover:scale-105 transition-all duration-300 hover:shadow-lg group border border-blue-200/50" style={{ animationDelay: '0.2s' }}>
                     <Building2 className="mx-auto mb-4 text-blue-600 group-hover:scale-110 transition-transform duration-300" size={40} />
                     <h3 className="font-semibold text-gray-900">Modern Infrastructure</h3>
                     <p className="text-sm text-gray-600 mt-2">State-of-the-art facilities</p>
                   </div>
-                  <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl text-center hover:scale-105 transition-all duration-300 hover:shadow-lg group border border-purple-200/50 animate-page-flip" style={{ animationDelay: '0.4s' }}>
+                  <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl text-center hover:scale-105 transition-all duration-300 hover:shadow-lg group border border-purple-200/50" style={{ animationDelay: '0.4s' }}>
                     <Users className="mx-auto mb-4 text-purple-600 group-hover:scale-110 transition-transform duration-300" size={40} />
                     <h3 className="font-semibold text-gray-900">Expert Teams</h3>
                     <p className="text-sm text-gray-600 mt-2">Skilled professionals</p>
                   </div>
-                  <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl text-center hover:scale-105 transition-all duration-300 hover:shadow-lg group border border-green-200/50 animate-page-flip" style={{ animationDelay: '0.6s' }}>
+                  <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl text-center hover:scale-105 transition-all duration-300 hover:shadow-lg group border border-green-200/50" style={{ animationDelay: '0.6s' }}>
                     <Award className="mx-auto mb-4 text-green-600 group-hover:scale-110 transition-transform duration-300" size={40} />
                     <h3 className="font-semibold text-gray-900">Award Winning</h3>
                     <p className="text-sm text-gray-600 mt-2">Recognized excellence</p>
                   </div>
-                  <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-2xl text-center hover:scale-105 transition-all duration-300 hover:shadow-lg group border border-indigo-200/50 animate-page-flip" style={{ animationDelay: '0.8s' }}>
+                  <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-2xl text-center hover:scale-105 transition-all duration-300 hover:shadow-lg group border border-indigo-200/50" style={{ animationDelay: '0.8s' }}>
                     <TrendingUp className="mx-auto mb-4 text-indigo-600 group-hover:scale-110 transition-transform duration-300" size={40} />
                     <h3 className="font-semibold text-gray-900">Growth Focused</h3>
                     <p className="text-sm text-gray-600 mt-2">Continuous innovation</p>
