@@ -118,17 +118,17 @@ const Hero = () => {
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-8">
               <div className="text-center group animate-book-float">
-                <div className="text-3xl font-bold text-blue-600 group-hover:scale-110 transition-transform duration-300">50+</div>
+                <div className="text-3xl font-bold text-blue-600 group-hover:scale-110 transition-transform duration-300">10+</div>
                 <div className="text-gray-600 font-medium">Companies</div>
               </div>
               <div className="text-center group animate-book-float" style={{ animationDelay: '0.5s' }}>
                 <div className="text-3xl font-bold text-purple-600 group-hover:scale-110 transition-transform duration-300">10+</div>
                 <div className="text-gray-600 font-medium">Employees</div>
               </div>
-              <div className="text-center group animate-book-float" style={{ animationDelay: '1s' }}>
+              {/* <div className="text-center group animate-book-float" style={{ animationDelay: '1s' }}>
                 <div className="text-3xl font-bold text-indigo-600 group-hover:scale-110 transition-transform duration-300">10+</div>
                 <div className="text-gray-600 font-medium">Countries</div>
-              </div>
+              </div> */}
               <div className="text-center group animate-book-float" style={{ animationDelay: '1.5s' }}>
                 <div className="text-3xl font-bold text-green-600 group-hover:scale-110 transition-transform duration-300">100%</div>
                 <div className="text-gray-600 font-medium">Satisfaction</div>

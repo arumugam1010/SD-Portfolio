@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { ExternalLink, Github, Eye, Code, Zap, Utensils, QrCode, Receipt, CheckSquare, Package, X, Calendar, Users, Star, ArrowRight, GraduationCap } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ExternalLink, Github, Eye, Code, Zap, Utensils, QrCode, Receipt, CheckSquare, Package, ArrowRight, GraduationCap } from 'lucide-react';
 
 const Portfolio = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [showModal, setShowModal] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -32,17 +31,7 @@ const Portfolio = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleViewProject = (project) => {
-    setSelectedProject(project);
-    setShowModal(true);
-    document.body.style.overflow = 'hidden';
-  };
 
-  const closeModal = () => {
-    setShowModal(false);
-    setSelectedProject(null);
-    document.body.style.overflow = 'unset';
-  };
 
   const projects = [
     {
@@ -333,13 +322,13 @@ const Portfolio = () => {
                       ))}
                     </div>
                     <div className="flex items-center justify-between">
-                      <button 
-                        onClick={() => handleViewProject(project)}
+                      <Link 
+                        to={`/project/${project.id}`}
                         className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300"
                       >
                         <span>View Details</span>
                         <ArrowRight className="w-4 h-4" />
-                      </button>
+                      </Link>
                       <div className="flex space-x-2">
                         <Code className="w-5 h-5 text-gray-400" />
                         <Github className="w-5 h-5 text-gray-400" />
@@ -362,133 +351,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Project Details Modal */}
-      {showModal && selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-          <div className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
-            <div className="p-8">
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 bg-gradient-to-r from-blue-100 to-purple-100 rounded-2xl">
-                    <selectedProject.icon className="w-8 h-8 text-blue-600" />
-                  </div>
-                  <div>
-                    <h2 className="text-3xl font-bold text-gray-900">{selectedProject.title}</h2>
-                    <p className="text-gray-600">{selectedProject.category}</p>
-                  </div>
-                </div>
-                <button 
-                  onClick={closeModal}
-                  className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-300"
-                >
-                  <X className="w-6 h-6 text-gray-600" />
-                </button>
-              </div>
 
-              <div className="grid lg:grid-cols-2 gap-8">
-                <div>
-                  <img 
-                    src={selectedProject.image} 
-                    alt={selectedProject.title}
-                    className="w-full h-64 object-cover rounded-2xl shadow-lg"
-                  />
-                  
-                  <div className="mt-6 space-y-4">
-                    <div className="flex items-center space-x-4">
-                      <div className="flex items-center space-x-2 text-gray-600">
-                        <Calendar className="w-5 h-5" />
-                        <span>{selectedProject.details.duration}</span>
-                      </div>
-                      <div className="flex items-center space-x-2 text-gray-600">
-                        <Users className="w-5 h-5" />
-                        <span>{selectedProject.details.team}</span>
-                      </div>
-                      <div className={`flex items-center space-x-2 px-3 py-1 rounded-full text-sm font-medium ${
-                        selectedProject.details.status === 'completed' 
-                          ? 'bg-green-100 text-green-700' 
-                          : 'bg-yellow-100 text-yellow-700'
-                      }`}>
-                        <Star className="w-4 h-4" />
-                        <span className="capitalize">{selectedProject.details.status}</span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">Features</h3>
-                      <ul className="space-y-2">
-                        {selectedProject.details.features.map((feature, index) => (
-                          <li key={index} className="flex items-center space-x-2 text-gray-600">
-                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">Description</h3>
-                    <p className="text-gray-600 leading-relaxed">{selectedProject.description}</p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">Technologies</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedProject.technologies.map((tech, index) => (
-                        <span 
-                          key={index}
-                          className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full font-medium"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">Challenges & Solutions</h3>
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="font-semibold text-gray-800 mb-2">Challenges:</h4>
-                        <ul className="space-y-1">
-                          {selectedProject.details.challenges.map((challenge, index) => (
-                            <li key={index} className="text-gray-600 text-sm">• {challenge}</li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-800 mb-2">Solutions:</h4>
-                        <ul className="space-y-1">
-                          {selectedProject.details.solutions.map((solution, index) => (
-                            <li key={index} className="text-gray-600 text-sm">• {solution}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex space-x-4">
-                    <a 
-                      href={selectedProject.link}
-                      className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-full font-medium text-center hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
-                    >
-                      Live Demo
-                    </a>
-                    <a 
-                      href={selectedProject.github}
-                      className="flex-1 border-2 border-gray-300 text-gray-700 py-3 px-6 rounded-full font-medium text-center hover:border-blue-600 hover:text-blue-600 transition-all duration-300"
-                    >
-                      View Code
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 };

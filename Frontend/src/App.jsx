@@ -14,6 +14,9 @@ import Dashboard from './pages/admin/Dashboard.jsx';
 import Contacts from './pages/admin/Contacts.jsx';
 import ContactDetail from './pages/admin/ContactDetail.jsx';
 
+// Project Pages
+import ProjectDetails from './pages/ProjectDetails.jsx';
+
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('token');
@@ -76,7 +79,10 @@ function App() {
             <ContactDetail />
           </ProtectedRoute>
         } />
-        
+
+        {/* Project Routes */}
+        <Route path="/project/:id" element={<ProjectDetails />} />
+
         {/* Catch all route */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
