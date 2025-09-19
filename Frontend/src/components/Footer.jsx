@@ -107,7 +107,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="text-blue-400" size={18} />
-                <p className="text-gray-400">hello@srideviitpark.com</p>
+                <p className="text-gray-400">sridevisoft25@gmail.com</p>
               </div>
             </div>
           </div>

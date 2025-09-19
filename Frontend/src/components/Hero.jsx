@@ -117,10 +117,10 @@ const Hero = () => {
             </div>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-8">
-              <div className="text-center group animate-book-float">
+              {/* <div className="text-center group animate-book-float">
                 <div className="text-3xl font-bold text-blue-600 group-hover:scale-110 transition-transform duration-300">10+</div>
                 <div className="text-gray-600 font-medium">Companies</div>
-              </div>
+              </div> */}
               <div className="text-center group animate-book-float" style={{ animationDelay: '0.5s' }}>
                 <div className="text-3xl font-bold text-purple-600 group-hover:scale-110 transition-transform duration-300">10+</div>
                 <div className="text-gray-600 font-medium">Employees</div>

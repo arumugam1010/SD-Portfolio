@@ -143,7 +143,7 @@ const Contact = () => {
                 {
                   icon: Mail,
                   title: 'Email Us',
-                  content: 'hello@srideviitpark.com',
+                  content: 'sridevisoft25@gmail.com',
                   color: 'text-purple-600 bg-purple-50'
                 },
                 {
@@ -296,22 +296,24 @@ const Contact = () => {
         <div className={`mt-16 transition-all duration-1000 delay-600 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <div className="bg-white rounded-3xl p-8 shadow-xl">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-              Find Us Here
-            </h3>
-            <div className="relative h-96 bg-gray-200 rounded-2xl overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="mx-auto mb-4 text-blue-600" size={48} />
-                  <p className="text-gray-600">Interactive Map Coming Soon</p>
-                  <p className="text-sm text-gray-500 mt-2">
-                    Sri Devi Software Solutions, Vallioor, Tirunelveli - 627117, India
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div className="bg-white rounded-3xl p-8 shadow-xl">
+  <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+    Find Us Here
+  </h3>
+  <div className="relative h-96 bg-gray-200 rounded-2xl overflow-hidden">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3922.645926476471!2d77.60998147479186!3d8.378944999693308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04e7d7b9f4b1ff%3A0x9d7b25a9df9a1d38!2sSri%20Devi%20Snacks%2C%20Vallioor!5e0!3m2!1sen!2sin!4v1695137223456!5m2!1sen!2sin"
+      width="100%"
+      height="100%"
+      style={{ border: 0 }}
+      allowFullScreen=""
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      className="absolute inset-0"
+    ></iframe>
+  </div>
+</div>
+
         </div>
       </div>
     </section>
