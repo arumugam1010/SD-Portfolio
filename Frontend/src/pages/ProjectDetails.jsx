@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ExternalLink, Github, Calendar, Users, Star, ArrowLeft, Code, Zap } from 'lucide-react';
+import { ExternalLink, Github, Calendar, Users, Star, ArrowLeft, Code, Zap, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const ProjectDetails = () => {
   const { id } = useParams();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const openModal = (index) => {
+    setCurrentImageIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % project.details.screenshots.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + project.details.screenshots.length) % project.details.screenshots.length);
+  };
 
   // This would typically come from an API or context, but for now using the same data structure
   const projects = [
@@ -84,37 +103,50 @@ const ProjectDetails = () => {
     {
       id: 3,
       title: 'Billing Application',
-      description: 'Comprehensive billing and invoicing system with automated calculations and payment tracking',
+      description: 'A comprehensive React-based billing system with TypeScript, Vite, and Tailwind CSS, featuring secure authentication, dashboard analytics, shop and product management, billing interface, stock tracking, reports, and more.',
       image: 'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Vue.js', 'Express.js', 'PostgreSQL', 'Stripe'],
+      technologies: ['React 18.3.1', 'TypeScript', 'Vite', 'Tailwind CSS', 'React Router DOM', 'Axios', 'Lucide React', 'QRCode.react', 'Vercel Analytics'],
       link: '#',
       github: '#',
       category: 'Finance',
       icon: () => <div>💰</div>,
       details: {
-        duration: '5 months',
-        team: '6 developers',
+        duration: 'Ongoing',
+        team: 'Development Team',
         status: 'in-progress',
         features: [
-          'Automated billing generation',
-          'Payment processing',
-          'Invoice management',
-          'Tax calculations',
-          'Financial reporting'
+          'Authentication System: Secure login with JWT-based authentication, session timeout (1 hour), and automatic logout at 11 PM',
+          'Dashboard: Central hub displaying key metrics, recent bills, top shops, top products, sales trends, and low stock alerts',
+          'Shop Management: Interface to view, create, update, and delete shops, including contact details, GST numbers, and status management',
+          'Product Management: Tools to manage product catalog with HSN codes, GST rates, pricing, and shop-specific pricing configurations',
+          'Billing System: Comprehensive billing interface for creating bills, adding items, calculating totals, taxes (SGST/CGST), and managing pending payments',
+          'Stock Management: Inventory tracking with quantity adjustments, low stock alerts, and rate management for products',
+          'Reports and Analytics: Detailed reports on sales, revenue, product performance, and shop analytics with pagination and search',
+          'Weekly Scheduling: Management of delivery schedules by day of the week, assigning shops to specific days',
+          'Responsive Layout: Modern UI with navigation layout, icons from Lucide React, and mobile-friendly design',
+          'QR Code Generation: Integration for generating QR codes (e.g., for GPay payments)',
+          'Context-Based State Management: AppContext for sharing user data, authentication state, and other global states',
+          'Analytics Integration: Vercel Analytics and Speed Insights for performance monitoring',
+          'Search and Pagination: Efficient data handling with search functionality and paginated lists',
+          'Error Handling and Loading States: User-friendly loading indicators and error messages',
+          'Logo Integration: Displays the SriDeviSnacks logo (Logo.png) for branding'
         ],
         challenges: [
-          'Complex tax calculation logic',
-          'Payment gateway integration',
-          'Data security compliance'
+          'Implementing secure authentication and session management',
+          'Handling complex tax calculations and billing logic',
+          'Ensuring responsive design across devices',
+          'Integrating various APIs for payments and analytics'
         ],
         solutions: [
-          'Built modular tax calculation engine',
-          'Implemented PCI DSS compliance',
-          'Used Stripe for secure payments'
+          'Used JWT for secure authentication and implemented session timeouts',
+          'Built modular components for tax and billing calculations',
+          'Leveraged Tailwind CSS for responsive design',
+          'Integrated Axios for API communication and QRCode.react for QR generation'
         ],
         screenshots: [
           'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800',
-          'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800'
+          'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
+          '/Logo.png'
         ]
       }
     },
@@ -355,7 +387,7 @@ const ProjectDetails = () => {
                       <li key={index} className="text-gray-600 text-sm leading-relaxed">
                         • {solution}
                       </li>
-                    ))}
+                i    ))}
                   </ul>
                 </div>
               </div>
@@ -366,12 +398,17 @@ const ProjectDetails = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Project Screenshots</h2>
               <div className="grid grid-cols-1 gap-4">
                 {project.details.screenshots.map((screenshot, index) => (
-                  <img
+                  <div
                     key={index}
-                    src={screenshot}
-                    alt={`${project.title} screenshot ${index + 1}`}
-                    className="w-full h-48 object-cover rounded-lg shadow-md"
-                  />
+                    onClick={() => openModal(index)}
+                    className="cursor-pointer"
+                  >
+                    <img
+                      src={screenshot}
+                      alt={`${project.title} screenshot ${index + 1}`}
+                      className="w-full h-48 object-cover rounded-lg shadow-md hover:opacity-80 transition-opacity duration-300"
+                    />
+                  </div>
                 ))}
               </div>
             </div>
@@ -392,6 +429,41 @@ const ProjectDetails = () => {
           </div>
         </div>
       </div>
+
+      {/* Modal for Screenshots */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+          <div className="relative max-w-4xl max-h-full p-4">
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all duration-300"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <img
+              src={project.details.screenshots[currentImageIndex]}
+              alt={`${project.title} screenshot ${currentImageIndex + 1}`}
+              className="max-w-full max-h-full object-contain rounded-lg"
+            />
+            {project.details.screenshots.length > 1 && (
+              <>
+                <button
+                  onClick={prevImage}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all duration-300"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+                <button
+                  onClick={nextImage}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all duration-300"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

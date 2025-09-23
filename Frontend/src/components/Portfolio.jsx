@@ -111,37 +111,50 @@ const Portfolio = () => {
     {
       id: 3,
       title: 'Billing Application',
-      description: 'Comprehensive billing and invoicing system with automated calculations and payment tracking',
+      description: 'A comprehensive React-based billing system with TypeScript, Vite, and Tailwind CSS, featuring secure authentication, dashboard analytics, shop and product management, billing interface, stock tracking, reports, and more.',
       image: 'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React', 'Node.js', 'Supabase'],
+      technologies: ['React 18.3.1', 'TypeScript', 'Vite', 'Tailwind CSS', 'React Router DOM', 'Axios', 'Lucide React', 'QRCode.react', 'Vercel Analytics'],
       link: '#',
       github: '#',
       category: 'Finance',
       icon: Receipt,
       details: {
-        duration: '5 months',
-        team: '6 developers',
+        duration: 'Ongoing',
+        team: 'Development Team',
         status: 'in-progress',
         features: [
-          'Automated billing generation',
-          'Payment processing',
-          'Invoice management',
-          'Tax calculations',
-          'Financial reporting'
+          'Authentication System: Secure login with JWT-based authentication, session timeout (1 hour), and automatic logout at 11 PM',
+          'Dashboard: Central hub displaying key metrics, recent bills, top shops, top products, sales trends, and low stock alerts',
+          'Shop Management: Interface to view, create, update, and delete shops, including contact details, GST numbers, and status management',
+          'Product Management: Tools to manage product catalog with HSN codes, GST rates, pricing, and shop-specific pricing configurations',
+          'Billing System: Comprehensive billing interface for creating bills, adding items, calculating totals, taxes (SGST/CGST), and managing pending payments',
+          'Stock Management: Inventory tracking with quantity adjustments, low stock alerts, and rate management for products',
+          'Reports and Analytics: Detailed reports on sales, revenue, product performance, and shop analytics with pagination and search',
+          'Weekly Scheduling: Management of delivery schedules by day of the week, assigning shops to specific days',
+          'Responsive Layout: Modern UI with navigation layout, icons from Lucide React, and mobile-friendly design',
+          'QR Code Generation: Integration for generating QR codes (e.g., for GPay payments)',
+          'Context-Based State Management: AppContext for sharing user data, authentication state, and other global states',
+          'Analytics Integration: Vercel Analytics and Speed Insights for performance monitoring',
+          'Search and Pagination: Efficient data handling with search functionality and paginated lists',
+          'Error Handling and Loading States: User-friendly loading indicators and error messages',
+          'Logo Integration: Displays the SriDeviSnacks logo (Logo.png) for branding'
         ],
         challenges: [
-          'Complex tax calculation logic',
-          'Payment gateway integration',
-          'Data security compliance'
+          'Implementing secure authentication and session management',
+          'Handling complex tax calculations and billing logic',
+          'Ensuring responsive design across devices',
+          'Integrating various APIs for payments and analytics'
         ],
         solutions: [
-          'Built modular tax calculation engine',
-          'Implemented PCI DSS compliance',
-          'Used Stripe for secure payments'
+          'Used JWT for secure authentication and implemented session timeouts',
+          'Built modular components for tax and billing calculations',
+          'Leveraged Tailwind CSS for responsive design',
+          'Integrated Axios for API communication and QRCode.react for QR generation'
         ],
         screenshots: [
           'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800',
-          'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800'
+          'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
+          '/Logo.png'
         ]
       }
     },

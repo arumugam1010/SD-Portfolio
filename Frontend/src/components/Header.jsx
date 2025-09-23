@@ -46,23 +46,24 @@ const Header = () => {
   ];
 
   return (
-    <header className={`fixed top-0 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 rounded-full w-4/5 px-6 ${
+    <header className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 rounded-full w-4/5 px-6 ${
       isScrolled ? 'bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl' : 'bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600'
     }`}>
-      <div className="max-w-7xl mx-auto py-2">
+      <div className="max-w-7xl mx-auto py-1">
         <div className="flex items-center justify-between">
           {/* Logo Section */}
           <div className="flex items-center space-x-4 group">
             <img
               src="/Logo.png"
               alt="Sri Devi Software Solutions Logo"
-              className="h-20 w-20 object-contain group-hover:scale-110 transition-all duration-500 animate-pulse"
+              className="h-12 w-12 object-contain group-hover:scale-110 transition-all duration-500 animate-pulse"
             />
             <div className="flex flex-col">
+             
               <span className={`text-2xl font-bold transition-all duration-500 drop-shadow-lg ${
                 isScrolled ? 'text-gray-900 group-hover:text-blue-600' : 'text-white group-hover:text-yellow-300'
               }`}>
-                Sri Devi software solutions
+                Sri Devi Software Solutions
               </span>
               <span className={`text-sm font-medium transition-all duration-500 ${
                 isScrolled ? 'text-gray-700' : 'text-yellow-200'
