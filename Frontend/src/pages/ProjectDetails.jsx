@@ -387,7 +387,7 @@ const ProjectDetails = () => {
                       <li key={index} className="text-gray-600 text-sm leading-relaxed">
                         • {solution}
                       </li>
-                i    ))}
+                    ))}
                   </ul>
                 </div>
               </div>
